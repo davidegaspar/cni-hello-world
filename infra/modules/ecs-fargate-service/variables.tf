@@ -71,7 +71,7 @@ variable "health_check_grace_period_seconds" {
 
 variable "desired_count" {
   type = "string"
-  default = "1"
+  default = "0"
 }
 
 variable "cpu" {

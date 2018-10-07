@@ -21,12 +21,12 @@ resource "aws_ecs_service" "service" {
   load_balancer {
     target_group_arn = "${var.load_balancer_target_group_arn}"
     container_name   = "${var.environment}-${var.application}"
-    container_port   = 80
+    container_port   = 8080
   }
 
-  lifecycle {
-    ignore_changes = ["desired_count"]
-  }
+  # lifecycle {
+  #   ignore_changes = ["desired_count"]
+  # }
 }
 
 resource "aws_ecs_task_definition" "fargate_task_definition" {

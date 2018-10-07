@@ -12,6 +12,7 @@ cni-hello-world
 - terraform state could be saved/locked remotely in a team setting
 - could pull variables from remote state, like repository
 - renamed a module `terraform state mv module.cluster module.environment`
+- https://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_cannot_pull_image.html
 
 ## Reference
 - https://www.terraform.io/docs/providers/aws/index.html
