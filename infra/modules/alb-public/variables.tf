@@ -35,5 +35,5 @@ variable "public_subnets" {
 # configuration
 
 variable "health_check_path" {
-  type = "list"
+  type = "string"
 }
