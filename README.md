@@ -17,6 +17,7 @@
 - https://www.terraform.io/docs/providers/aws/index.html
 
 ## TODO
+- health check failing
 - check tags
 - check config defaults
 - check variables sections
