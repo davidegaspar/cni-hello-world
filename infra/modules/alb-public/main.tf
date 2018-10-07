@@ -37,7 +37,7 @@ resource "aws_lb_target_group" "target_group" {
     path = "${var.health_check_path}"
     port = "80"
     protocol = "HTTP"
-    timeout = "6"
+    timeout = "5"
     healthy_threshold = "2"
     unhealthy_threshold = "2"
   }
