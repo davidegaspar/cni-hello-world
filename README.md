@@ -13,3 +13,7 @@ cni-hello-world
 
 ## Reference
 - https://www.terraform.io/docs/providers/aws/index.html
+
+## TODO
+- check tags
+- check config defaults
