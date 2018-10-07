@@ -28,3 +28,7 @@ resource "aws_iam_role_policy" "execution_policy" {
   policy = "${data.template_file.execution_policy.rendered}"
 
 }
+
+resource "aws_cloudwatch_log_group" "log_group" {
+  name = "/aws/fargate/${var.environment}"
+}

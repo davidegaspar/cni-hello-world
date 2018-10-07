@@ -6,8 +6,16 @@
     "memory": 512,
     "portMappings": [
       {
-        "containerPort": 8080
+        "containerPort": 80
       }
-    ]
+    ],
+    "logConfiguration": {
+      "logDriver": "awslogs",
+      "options": {
+        "awslogs-region": "${region}",
+        "awslogs-group": "/aws/fargate/${environment}",
+        "awslogs-stream-prefix": "${application}"
+      }
+    }
   }
 ]

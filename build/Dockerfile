@@ -5,4 +5,4 @@ ADD code/node_modules node_modules
 
 CMD ["node", "app.js"]
 
-EXPOSE 8080
+EXPOSE 80
