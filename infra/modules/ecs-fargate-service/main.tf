@@ -13,7 +13,7 @@ resource "aws_ecs_service" "service" {
   health_check_grace_period_seconds = "${var.health_check_grace_period_seconds}"
 
   network_configuration {
-    subnets  = ["${var.private_subnets}"]
+    subnets  = ["${var.public_subnets}"]
     security_groups = ["${aws_security_group.security_group.id}"]
     assign_public_ip = true
   }
@@ -61,4 +61,13 @@ resource "aws_security_group_rule" "containers" {
   to_port = 0
   protocol = "-1"
   source_security_group_id = "${aws_security_group.security_group.id}"
+}
+
+resource "aws_security_group_rule" "internet" {
+  security_group_id = "${aws_security_group.security_group.id}"
+  type = "egress"
+  from_port = 0
+  to_port = 0
+  protocol = "-1"
+  cidr_blocks = ["0.0.0.0/0"]
 }

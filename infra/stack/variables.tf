@@ -27,3 +27,13 @@ variable "repository_url" {
   type = "string"
   default = "963345548549.dkr.ecr.us-east-1.amazonaws.com/delivery-helloworld"
 }
+
+variable "vpc_id" {
+  type = "string"
+  default = "vpc-66f4ef02"
+}
+
+variable "public_subnets" {
+  type = "list"
+  default = ["subnet-0eefab78", "subnet-3af8b007", "subnet-d741cddb"]
+}

@@ -1,5 +1,4 @@
 # cni-hello-world
-cni-hello-world
 
 ## Tools
 - tfenv `brew install tfenv`
@@ -21,3 +20,4 @@ cni-hello-world
 - check tags
 - check config defaults
 - check variables sections
+- scaling
