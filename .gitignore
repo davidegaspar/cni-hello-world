@@ -9,3 +9,9 @@ Thumbs.db
 # terraform
 .terraform
 terraform.tfstate.backup
+
+# nodejs
+node_modules
+
+# build
+build/code

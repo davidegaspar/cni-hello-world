@@ -10,6 +10,7 @@ cni-hello-world
 
 ## Notes
 - terraform state could be saved/locked remotely in a team setting
+- could pull variables from remote state, like repository
 - renamed a module `terraform state mv module.cluster module.environment`
 
 ## Reference

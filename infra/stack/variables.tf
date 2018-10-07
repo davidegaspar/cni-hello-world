@@ -22,3 +22,8 @@ variable "owner" {
   type = "string"
   default = "team-rocket"
 }
+
+variable "repository_url" {
+  type = "string"
+  default = "963345548549.dkr.ecr.us-east-1.amazonaws.com/delivery-helloworld"
+}

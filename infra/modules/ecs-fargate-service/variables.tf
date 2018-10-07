@@ -25,7 +25,7 @@ variable "owner" {
 # interface
 
 variable "vpc_id" {
-  type = "list"
+  type = "string"
 }
 
 variable "private_subnets" {

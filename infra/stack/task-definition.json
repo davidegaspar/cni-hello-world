@@ -1,0 +1,13 @@
+[
+  {
+    "name": "${environment}-${application}-service",
+    "image": "${repository_url}:1",
+    "cpu": 256,
+    "memory": 512,
+    "portMappings": [
+      {
+        "containerPort": 80
+      }
+    ]
+  }
+]

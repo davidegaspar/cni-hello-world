@@ -5,7 +5,7 @@ resource "aws_ecs_service" "service" {
 
   name = "${var.environment}-${var.application}"
   cluster = "${var.cluster_id}"
-  task_definition = "${aws_ecs_task_definition.task_definition.arn}"
+  task_definition = "${aws_ecs_task_definition.fargate_task_definition.arn}"
   launch_type = "FARGATE"
   desired_count = "${var.desired_count}"
   deployment_maximum_percent = "${var.deployment_maximum_percent}"
@@ -14,7 +14,7 @@ resource "aws_ecs_service" "service" {
 
   network_configuration {
     subnets  = ["${var.private_subnets}"]
-    security_groups = "${aws_security_group.security_group.id}"
+    security_groups = ["${aws_security_group.security_group.id}"]
     assign_public_ip = true
   }
 
@@ -29,11 +29,11 @@ resource "aws_ecs_service" "service" {
   }
 }
 
-resource "aws_ecs_task_definition" "fargate" {
+resource "aws_ecs_task_definition" "fargate_task_definition" {
   family = "${var.environment}-${var.application}"
   container_definitions = "${var.task_definition}"
   execution_role_arn = "${var.execution_role_arn}"
-  requires_compatibilities = "FARGATE"
+  requires_compatibilities = ["FARGATE"]
   network_mode = "awsvpc"
   cpu = "${var.cpu}"
   memory = "${var.memory}"
@@ -46,19 +46,19 @@ resource "aws_security_group" "security_group" {
 }
 
 resource "aws_security_group_rule" "load_balancer" {
-  type            = "ingress"
-  from_port       = 0
-  to_port         = 0
-  protocol        = "-1"
-
-  security_group_id = "${var.load_balancer_security_group_id}"
+  security_group_id = "${aws_security_group.security_group.id}"
+  type = "ingress"
+  from_port = 0
+  to_port = 0
+  protocol = "-1"
+  source_security_group_id = "${var.load_balancer_security_group_id}"
 }
 
 resource "aws_security_group_rule" "containers" {
-  type            = "ingress"
-  from_port       = 0
-  to_port         = 0
-  protocol        = "-1"
-
   security_group_id = "${aws_security_group.security_group.id}"
+  type = "ingress"
+  from_port = 0
+  to_port = 0
+  protocol = "-1"
+  source_security_group_id = "${aws_security_group.security_group.id}"
 }
