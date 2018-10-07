@@ -1,6 +1,6 @@
 
-module "cluster" {
-  source = "../modules/ecs-cluster"
+module "environment" {
+  source = "../modules/ecs-environment"
   region = "${var.region}"
   profile = "${var.profile}"
   application = "${var.application}"
@@ -21,7 +21,7 @@ module "load_balancer" {
 }
 
 # module "service" {
-#   source = "../modules/ecs-service"
+#   source = "../modules/ecs-fargate-service"
 #   region = "${var.region}"
 #   profile = "${var.profile}"
 #   application = "${var.application}"
@@ -29,6 +29,9 @@ module "load_balancer" {
 #   owner = "${var.owner}"
 #   vpc_id = "vpc-66f4ef02"
 #   private_subnets = ["subnet-15821f4d", "subnet-d53456b0", "subnet-e661f4cc"]
-#   cluster_id = "${module.cluster.id}"
+#   cluster_id = "${module.environment.cluster_id}"
+#   execution_role_arn = "${module.environment.execution_role_arn}"
+#   load_balancer_target_group_arn = "${module.load_balancer.target_group_arn}"
+#   load_balancer_security_group_id = "${module.load_balancer.security_group_id}"
 #   task_definition = "${file("service.json")}"
 # }

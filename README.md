@@ -10,6 +10,7 @@ cni-hello-world
 
 ## Notes
 - terraform state could be saved/locked remotely in a team setting
+- renamed a module `terraform state mv module.cluster module.environment`
 
 ## Reference
 - https://www.terraform.io/docs/providers/aws/index.html
@@ -17,3 +18,4 @@ cni-hello-world
 ## TODO
 - check tags
 - check config defaults
+- check variables sections
