@@ -12,3 +12,13 @@ variable "application" {
   type = "string"
   default = "helloworld"
 }
+
+variable "environment" {
+  type = "string"
+  default = "delivery"
+}
+
+variable "owner" {
+  type = "string"
+  default = "team-rocket"
+}

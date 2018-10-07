@@ -1,3 +1,3 @@
 resource "aws_ecr_repository" "repository" {
-  name = "${var.application}"
+  name = "${var.environment}-${var.application}"
 }
