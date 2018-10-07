@@ -17,7 +17,7 @@ module "load_balancer" {
   owner = "${var.owner}"
   vpc_id = "${var.vpc_id}"
   public_subnets = ["${var.public_subnets}"]
-  health_check_path = "/health"
+  health_check_path = "/"
 }
 
 module "service" {
