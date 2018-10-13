@@ -1,3 +1,3 @@
-# output "repository_url" {
-#   value = "${aws_ecr_repository.repository.repository_url}"
-# }
+output "load_balancer_dns_name" {
+  value = "${module.load_balancer.dns_name}"
+}
