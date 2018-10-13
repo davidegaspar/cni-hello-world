@@ -17,7 +17,7 @@ module "load_balancer" {
   owner = "${var.owner}"
   vpc_id = "${var.vpc_id}"
   public_subnets = ["${var.public_subnets}"]
-  health_check_path = "/"
+  health_check_path = "/health"
 }
 
 module "service" {
@@ -34,5 +34,5 @@ module "service" {
   load_balancer_target_group_arn = "${module.load_balancer.target_group_arn}"
   load_balancer_security_group_id = "${module.load_balancer.security_group_id}"
   task_definition = "${data.template_file.task_definition.rendered}"
-  desired_count = 0
+  desired_count = 1
 }
