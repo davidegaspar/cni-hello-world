@@ -9,6 +9,7 @@ Thumbs.db
 # terraform
 .terraform
 terraform.tfstate.backup
+.terraform.tfstate.lock.info
 
 # nodejs
 node_modules

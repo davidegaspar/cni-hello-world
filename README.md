@@ -6,6 +6,7 @@
 - [delivery](delivery) - delivery infrastructure, all resources involved in the delivery from source control to the live environment
 - [deploy](deploy) - deployment instructions
 - [infra](infra) - service infrastructure, single environment called `stack`
+- [test](test) - simple load test to verify the scaling
 
 ## Tools
 - tfenv `brew install tfenv`
@@ -24,8 +25,12 @@
 - https://www.terraform.io/docs/providers/aws/index.html
 
 ## TO DO
-- health check is currently failing
-- tag resources
-- check config defaults
-- check variables sections
-- enable scaling
+- load test
+- r53 or just redirect
+- waf
+- cloudfront
+- monitoring/dashboard
+- alarms
+- logging
+- pipeline
+- resource diagram

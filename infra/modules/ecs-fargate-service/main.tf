@@ -1,8 +1,4 @@
 resource "aws_ecs_service" "service" {
-
-  # depends_on = ["aws_iam_role_policy.foo"]
-  # iam_role = "${aws_iam_role.foo.arn}"
-
   name = "${var.environment}-${var.application}"
   cluster = "${var.cluster_id}"
   task_definition = "${aws_ecs_task_definition.fargate_task_definition.arn}"
@@ -24,9 +20,9 @@ resource "aws_ecs_service" "service" {
     container_port   = 80
   }
 
-  # lifecycle {
-  #   ignore_changes = ["desired_count"]
-  # }
+  lifecycle {
+    ignore_changes = ["desired_count"]
+  }
 }
 
 resource "aws_ecs_task_definition" "fargate_task_definition" {
@@ -43,9 +39,15 @@ resource "aws_security_group" "security_group" {
   name        = "${var.environment}-${var.application}"
   description = "Access to the Fargate containers"
   vpc_id      = "${var.vpc_id}"
+
+  tags {
+    application = "${var.application}"
+    environment = "${var.environment}"
+    owner = "${var.owner}"
+  }
 }
 
-resource "aws_security_group_rule" "load_balancer" {
+resource "aws_security_group_rule" "load_balancer_inbound" {
   security_group_id = "${aws_security_group.security_group.id}"
   type = "ingress"
   from_port = 0
@@ -54,7 +56,7 @@ resource "aws_security_group_rule" "load_balancer" {
   source_security_group_id = "${var.load_balancer_security_group_id}"
 }
 
-resource "aws_security_group_rule" "containers" {
+resource "aws_security_group_rule" "containers_inbound" {
   security_group_id = "${aws_security_group.security_group.id}"
   type = "ingress"
   from_port = 0
@@ -63,7 +65,7 @@ resource "aws_security_group_rule" "containers" {
   source_security_group_id = "${aws_security_group.security_group.id}"
 }
 
-resource "aws_security_group_rule" "internet" {
+resource "aws_security_group_rule" "internet_outbound" {
   security_group_id = "${aws_security_group.security_group.id}"
   type = "egress"
   from_port = 0
