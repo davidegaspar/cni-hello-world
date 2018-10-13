@@ -6,6 +6,7 @@
 - [delivery](delivery) - delivery infrastructure, all resources involved in the delivery from source control to the live environment
 - [deploy](deploy) - deployment instructions
 - [infra](infra) - service infrastructure, single environment called `stack`
+- [test](test) - simple load test to verify the scaling
 
 ## Tools
 - tfenv `brew install tfenv`
@@ -31,4 +32,5 @@
 - monitoring/dashboard
 - alarms
 - logging
+- pipeline
 - resource diagram
