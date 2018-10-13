@@ -24,7 +24,8 @@
 - https://www.terraform.io/docs/providers/aws/index.html
 
 ## TO DO
-- fix scaling
 - load test
 - r53 or just redirect
+- waf
+- cloudfront
 - resource diagram

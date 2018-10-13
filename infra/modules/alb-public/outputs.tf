@@ -1,13 +1,17 @@
-output "load_balancer_full_name" {
-  value = "app/stack-helloworld-lb/fcc18941c4dd9cae"
+output "load_balancer_arn" {
+  value = "${aws_lb.alb.arn}"
 }
 
-output "target_group_full_name" {
-  value = "targetgroup/stack-helloworld-lb/b1922a9716d2608c"
+output "load_balancer_full_name" {
+  value = "${replace(element(split(":", aws_lb.alb.arn), 5), "loadbalancer/", "")}"
 }
 
 output "target_group_arn" {
   value = "${aws_lb_target_group.target_group.arn}"
+}
+
+output "target_group_full_name" {
+  value = "${element(split(":", aws_lb_target_group.target_group.arn), 5)}"
 }
 
 output "security_group_id" {

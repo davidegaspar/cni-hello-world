@@ -49,10 +49,3 @@ module "scaling" {
   load_balancer_full_name = "${module.load_balancer.load_balancer_full_name}"
   target_group_full_name = "${module.load_balancer.target_group_full_name}"
 }
-
-output "a" {
-  value = "${module.load_balancer.load_balancer_full_name}"
-}
-output "b" {
-  value = "${module.load_balancer.target_group_full_name}"
-}
