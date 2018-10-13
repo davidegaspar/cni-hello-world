@@ -1,13 +1,14 @@
 {
-  "Statement":[
+  "Version": "2008-10-17",
+  "Statement": [
     {
-      "Effect":"Allow",
-      "Principal":{
-        "Service":[
+      "Effect": "Allow",
+      "Principal": {
+        "Service": [
           "application-autoscaling.amazonaws.com"
         ]
       },
-      "Action":[
+      "Action": [
         "sts:AssumeRole"
       ]
     }

@@ -28,4 +28,7 @@
 - r53 or just redirect
 - waf
 - cloudfront
+- monitoring/dashboard
+- alarms
+- logging
 - resource diagram

@@ -34,7 +34,6 @@ module "service" {
   load_balancer_target_group_arn = "${module.load_balancer.target_group_arn}"
   load_balancer_security_group_id = "${module.load_balancer.security_group_id}"
   task_definition = "${data.template_file.task_definition.rendered}"
-  desired_count = 1
 }
 
 module "scaling" {
