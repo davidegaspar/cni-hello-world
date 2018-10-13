@@ -24,8 +24,7 @@
 - https://www.terraform.io/docs/providers/aws/index.html
 
 ## TO DO
-- health check is currently failing
-- tag resources
 - check config defaults
 - check variables sections
-- enable scaling
+- enable scaling + load test
+- r53
