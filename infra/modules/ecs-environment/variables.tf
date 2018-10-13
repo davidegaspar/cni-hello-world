@@ -1,3 +1,5 @@
+# aws
+
 variable "region" {
   type = "string"
 }
@@ -5,6 +7,8 @@ variable "region" {
 variable "profile" {
   type = "string"
 }
+
+# tags
 
 variable "application" {
   type = "string"

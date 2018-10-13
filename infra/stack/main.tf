@@ -36,3 +36,23 @@ module "service" {
   task_definition = "${data.template_file.task_definition.rendered}"
   desired_count = 1
 }
+
+module "scaling" {
+  source = "../modules/ecs-scaling"
+  region = "${var.region}"
+  profile = "${var.profile}"
+  application = "${var.application}-scaling"
+  environment = "${var.environment}"
+  owner = "${var.owner}"
+  cluster_name = "${module.environment.cluster_name}"
+  service_name = "${module.service.name}"
+  load_balancer_full_name = "${module.load_balancer.load_balancer_full_name}"
+  target_group_full_name = "${module.load_balancer.target_group_full_name}"
+}
+
+output "a" {
+  value = "${module.load_balancer.load_balancer_full_name}"
+}
+output "b" {
+  value = "${module.load_balancer.target_group_full_name}"
+}

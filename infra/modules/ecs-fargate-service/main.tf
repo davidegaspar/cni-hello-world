@@ -1,8 +1,4 @@
 resource "aws_ecs_service" "service" {
-
-  # depends_on = ["aws_iam_role_policy.foo"]
-  # iam_role = "${aws_iam_role.foo.arn}"
-
   name = "${var.environment}-${var.application}"
   cluster = "${var.cluster_id}"
   task_definition = "${aws_ecs_task_definition.fargate_task_definition.arn}"
@@ -24,9 +20,9 @@ resource "aws_ecs_service" "service" {
     container_port   = 80
   }
 
-  # lifecycle {
-  #   ignore_changes = ["desired_count"]
-  # }
+  lifecycle {
+    ignore_changes = ["desired_count"]
+  }
 }
 
 resource "aws_ecs_task_definition" "fargate_task_definition" {

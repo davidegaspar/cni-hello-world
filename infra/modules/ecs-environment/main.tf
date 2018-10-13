@@ -21,12 +21,9 @@ EOF
 }
 
 resource "aws_iam_role_policy" "execution_policy" {
-
   name  = "${var.environment}-${var.application}-execution"
   role  = "${aws_iam_role.execution_role.id}"
-
   policy = "${data.template_file.execution_policy.rendered}"
-
 }
 
 resource "aws_cloudwatch_log_group" "log_group" {

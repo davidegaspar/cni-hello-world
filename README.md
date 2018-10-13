@@ -24,7 +24,7 @@
 - https://www.terraform.io/docs/providers/aws/index.html
 
 ## TO DO
-- check config defaults
-- check variables sections
-- enable scaling + load test
-- r53
+- fix scaling
+- load test
+- r53 or just redirect
+- resource diagram

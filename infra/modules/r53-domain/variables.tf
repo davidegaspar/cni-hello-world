@@ -23,17 +23,3 @@ variable "owner" {
 }
 
 # interface
-
-variable "vpc_id" {
-  type = "string"
-}
-
-variable "public_subnets" {
-  type = "list"
-}
-
-# configuration
-
-variable "health_check_path" {
-  type = "string"
-}
