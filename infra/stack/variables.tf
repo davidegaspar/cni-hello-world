@@ -1,3 +1,5 @@
+# aws
+
 variable "region" {
   type = "string"
   default = "us-east-1"
@@ -7,6 +9,8 @@ variable "profile" {
   type = "string"
   default = "default"
 }
+
+# tags
 
 variable "application" {
   type = "string"
@@ -22,6 +26,8 @@ variable "owner" {
   type = "string"
   default = "team-rocket"
 }
+
+# interface
 
 variable "repository_url" {
   type = "string"
