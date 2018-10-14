@@ -7,6 +7,11 @@
 - [deploy](deploy) - deployment instructions
 - [infra](infra) - service infrastructure, single environment called `stack`
 - [test](test) - simple load test to verify the scaling
+- [docs](docs) - documentation support files
+
+## Architecture diagram
+
+![Architecture diagram ](docs/arch.png)
 
 ## Tools
 - tfenv `brew install tfenv`
@@ -24,13 +29,10 @@
 ## Reference
 - https://www.terraform.io/docs/providers/aws/index.html
 
-## TO DO
-- load test
-- r53 or just redirect
-- waf
-- cloudfront
-- monitoring/dashboard
-- alarms
-- logging
-- pipeline
-- resource diagram
+## Next steps
+- DNS
+- HTTPS
+- WAF
+- CDN
+- Monitoring and Alarms dashboard
+- Pipeline
